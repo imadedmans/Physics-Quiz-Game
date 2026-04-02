@@ -1,0 +1,20 @@
+@EASY QUESTIONS
+According to the 1st law of motion, An object with balanced forces will...
+What is the second law of motion?
+What is the third law of motion?
+Vectors have both...
+What is an example of a scalar?
+How is work done calculated?
+
+@MEDIUM QUESTIONS
+The normal force is always...
+Which of these is NOT a way of detecting radiation?
+What causes resistance in a current?
+Choose one correct statement about the moment of inertia
+Which one of these variables is NOT involved in buoyancy force?
+
+@HARD QUESTIONS
+According to Ohm's law, current is proportional to voltage provided...
+What is true about Newton's laws of gravity?
+What happens on the centripetal force of an object that moves in a circle uniformly?
+Which of these SUVAT equations is correct?

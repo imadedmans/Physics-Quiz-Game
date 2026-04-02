@@ -1,0 +1,542 @@
+[gd_scene load_steps=33 format=3 uid="uid://britk7xre5kti"]
+
+[ext_resource type="Script" path="res://TitleScreen.gd" id="1_tko4l"]
+[ext_resource type="Script" path="res://Scripts/CameraShake.gd" id="2_ybi00"]
+[ext_resource type="Script" path="res://Scripts/PixelPerfectLayer.gd" id="3_rvs3c"]
+[ext_resource type="Texture2D" uid="uid://d1y3ox8ugoe0r" path="res://Sprites/ButtonVariant0_0.png" id="4_kv5jj"]
+[ext_resource type="Texture2D" uid="uid://cuowkg6grvhhb" path="res://Sprites/ButtonVariant0_2.png" id="5_npyoj"]
+[ext_resource type="Texture2D" uid="uid://dm00472fabgb0" path="res://Sprites/ButtonVariant0_1.png" id="6_oo25k"]
+[ext_resource type="Texture2D" uid="uid://dsxewcpqj4pxu" path="res://Sprites/ButtonVariant1_0.png" id="9_p38ww"]
+[ext_resource type="Texture2D" uid="uid://de2ek6pmcyh6w" path="res://Sprites/ButtonVariant1_2.png" id="10_c5lq7"]
+[ext_resource type="Texture2D" uid="uid://bdj1h35v2mkja" path="res://Sprites/ButtonVariant1_1.png" id="11_0an2k"]
+[ext_resource type="FontFile" uid="uid://suuvx6mvusgu" path="res://Fonts/Early GameBoy.ttf" id="11_4aoqu"]
+[ext_resource type="FontFile" uid="uid://dyvo2rcoq8k27" path="res://Fonts/Daydream.ttf" id="13_cigut"]
+[ext_resource type="Texture2D" uid="uid://dxcw8jtgy6l8s" path="res://Sprites/ExplosionEffect.png" id="14_as0lr"]
+[ext_resource type="Texture2D" uid="uid://bywbvjxnam4ne" path="res://Sprites/DefaultBombMan.png" id="16_4ktev"]
+[ext_resource type="FontFile" uid="uid://cf584ekkoslc7" path="res://Fonts/GrapeSoda.ttf" id="18_mahud"]
+[ext_resource type="Texture2D" uid="uid://djsgr348w3iok" path="res://Sprites/SpeechBubbleNew.png" id="19_q2f5i"]
+[ext_resource type="AudioStream" uid="uid://djt2gvtxhlimd" path="res://Music and SFX/roblox explosion sound.mp3" id="20_fxeqh"]
+[ext_resource type="AudioStream" uid="uid://bia4sjqic62u6" path="res://Music and SFX/Slap.mp3" id="21_hgb3f"]
+[ext_resource type="Texture2D" uid="uid://djgysawu47pbe" path="res://Sprites/ItsJustAHand.png" id="22_5c2gx"]
+[ext_resource type="Texture2D" uid="uid://dxaa8omjouulm" path="res://Sprites/black.jpeg" id="24_fosb5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v3eoa"]
+viewport_path = NodePath("PixelPerfectLayer/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yhh1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxxu4"]
+
+[sub_resource type="Animation" id="Animation_f13ff"]
+resource_name = "BombGuyAnim"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_40flt"]
+resource_name = "Bombhead_Panic"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_616lm"]
+resource_name = "Bombhead_Worry"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_62ueb"]
+resource_name = "GetResults"
+
+[sub_resource type="Animation" id="Animation_ug6kk"]
+resource_name = "Lose"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.2),
+"transitions": PackedFloat32Array(0.0473661),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.0, 2.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:canShake")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:deathAnimFinish")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ctufy"]
+resource_name = "WackJob"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.48787e-16, 6.28319, 12.5664]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wfd7"]
+_data = {
+"Bombhead_Norm": SubResource("Animation_f13ff"),
+"Bombhead_Panic": SubResource("Animation_40flt"),
+"Bombhead_Worry": SubResource("Animation_616lm"),
+"GetResults": SubResource("Animation_62ueb"),
+"Lose": SubResource("Animation_ug6kk"),
+"WackJob": SubResource("Animation_ctufy")
+}
+
+[sub_resource type="Animation" id="Animation_kwjuj"]
+resource_name = "Transition_Left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.15, 1),
+"update": 0,
+"values": [Vector2(-1300, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_wgltu"]
+resource_name = "Transition_Right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.15, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1300, 2.08165e-12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sv7lo"]
+_data = {
+"Transition_Left": SubResource("Animation_kwjuj"),
+"Transition_Right": SubResource("Animation_wgltu")
+}
+
+[node name="Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tko4l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(2.08165e-12, 2.08165e-12)
+position_smoothing_speed = 20.0
+script = ExtResource("2_ybi00")
+timeToShake = 0.6
+
+[node name="PixelPerfectLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("def_camera", "pp_camera")]
+layer = -5
+script = ExtResource("3_rvs3c")
+def_camera = NodePath("../Camera2D")
+pp_camera = NodePath("SubViewport/Camera2D")
+
+[node name="SubViewport" type="SubViewport" parent="PixelPerfectLayer"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(1200, 650)
+
+[node name="Camera2D" type="Camera2D" parent="PixelPerfectLayer/SubViewport"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+offset = Vector2(2.08165e-12, 2.08165e-12)
+position_smoothing_speed = 20.0
+script = ExtResource("2_ybi00")
+timeToShake = 0.75
+
+[node name="ViewportRect" type="TextureRect" parent="PixelPerfectLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_v3eoa")
+
+[node name="ButtonPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -599.0
+offset_top = -327.0
+offset_right = -92.0
+offset_bottom = 325.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yhh1")
+
+[node name="ClassicMode" type="TextureButton" parent="ButtonPanel"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 504.0
+offset_bottom = 129.0
+texture_normal = ExtResource("4_kv5jj")
+texture_pressed = ExtResource("5_npyoj")
+texture_hover = ExtResource("6_oo25k")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ButtonPanel/ClassicMode"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 39.0
+offset_right = 509.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("13_cigut")
+theme_override_font_sizes/font_size = 35
+text = "classic mode"
+autowrap_mode = 3
+
+[node name="RelaxedMode" type="TextureButton" parent="ButtonPanel"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 134.0
+offset_right = 504.0
+offset_bottom = 259.0
+texture_normal = ExtResource("9_p38ww")
+texture_pressed = ExtResource("10_c5lq7")
+texture_hover = ExtResource("11_0an2k")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ButtonPanel/RelaxedMode"]
+layout_mode = 1
+offset_left = 39.0
+offset_top = 38.0
+offset_right = 501.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("13_cigut")
+theme_override_font_sizes/font_size = 35
+text = "relaxed mode"
+autowrap_mode = 3
+
+[node name="Credits!" type="RichTextLabel" parent="ButtonPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 260.0
+offset_right = 516.0
+offset_bottom = 645.0
+theme_override_fonts/normal_font = ExtResource("11_4aoqu")
+theme_override_font_sizes/normal_font_size = 25
+text = "Graphics and Programming by Isaac Lau
+
+SCRIPT TOOLS (FROM GITHUB):
+	- HTML5 File Handling Tool - By Pukkah (Miks Ramas)
+
+FONTS USED, ALL TAKEN FROM DAFONT.COM: 
+	- Daydream - By DoubleGum
+	- Grape Soda - By jeti
+	- Early Game Boy - By Jimmy Campbell
+
+SOUNDS USED:
+	- Explosion SFX - From Roblox
+	- Hurt SFX - By Toby Fox (SOURCED FROM UNDERTALE)
+
+MUSIC USED:
+	- Platform Panic Main Theme - By Erik Suhrke (NITROME)
+"
+
+[node name="TopPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -325.0
+offset_right = 597.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wxxu4")
+
+[node name="TitleText" type="RichTextLabel" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.5
+offset_top = -26.0
+offset_right = 226.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("13_cigut")
+theme_override_font_sizes/normal_font_size = 35
+text = "A physics quiz!"
+
+[node name="Explanation" type="RichTextLabel" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -269.5
+offset_top = -18.0
+offset_right = 313.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("11_4aoqu")
+theme_override_font_sizes/normal_font_size = 25
+text = "Featuring Dr. Bombhead!"
+
+[node name="Explanation2" type="RichTextLabel" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -268.5
+offset_top = 28.0
+offset_right = 342.5
+offset_bottom = 331.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("18_mahud")
+theme_override_font_sizes/normal_font_size = 40
+text = "Premise:
+Solve 15 randomised questions about various topics about Physics!
+- You have a total of 6 health points
+- Fail a question and you lose 2 hp
+- Get one correct and you gain 1 hp
+- Press ESC to quit the game"
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="QuestionTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DrTypicalBombhead")
+libraries = {
+"": SubResource("AnimationLibrary_3wfd7")
+}
+
+[node name="DrTypicalBombhead" type="Sprite2D" parent="."]
+position = Vector2(269, 175)
+scale = Vector2(3, 3)
+texture = ExtResource("16_4ktev")
+hframes = 11
+
+[node name="SpeechLabel" type="RichTextLabel" parent="DrTypicalBombhead"]
+visible = false
+z_index = 1
+offset_left = 43.0
+offset_top = -39.0
+offset_right = 183.0
+offset_bottom = 31.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_mahud")
+theme_override_font_sizes/normal_font_size = 15
+text = "dsadsadsa"
+
+[node name="SpeechBubble" type="Sprite2D" parent="DrTypicalBombhead"]
+visible = false
+position = Vector2(104.333, -4.33333)
+scale = Vector2(1, -1)
+texture = ExtResource("19_q2f5i")
+
+[node name="TalkTimer" type="Timer" parent="DrTypicalBombhead"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DrTypicalBombhead"]
+stream = ExtResource("20_fxeqh")
+volume_db = 2.0
+
+[node name="WackJob" type="AudioStreamPlayer" parent="DrTypicalBombhead"]
+stream = ExtResource("21_hgb3f")
+volume_db = 2.0
+
+[node name="Hand" type="Sprite2D" parent="DrTypicalBombhead"]
+position = Vector2(-22, 18.6667)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("22_5c2gx")
+
+[node name="BlackBars" type="Node2D" parent="."]
+z_index = -4
+
+[node name="Sprite2D" type="Sprite2D" parent="BlackBars"]
+position = Vector2(-652, 2.99997)
+scale = Vector2(0.366667, 4.80952)
+texture = ExtResource("24_fosb5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BlackBars"]
+position = Vector2(651, 6.00003)
+scale = Vector2(0.34, 4.78571)
+texture = ExtResource("24_fosb5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BlackBars"]
+position = Vector2(-0.999939, -363.5)
+scale = Vector2(4.63333, 0.446426)
+texture = ExtResource("24_fosb5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BlackBars"]
+position = Vector2(1.49994, 364)
+scale = Vector2(4.63667, 0.452383)
+texture = ExtResource("24_fosb5")
+
+[node name="BackgroundColour" type="Sprite2D" parent="."]
+self_modulate = Color(0.219608, 0.407843, 0.196078, 1)
+z_index = -5
+scale = Vector2(42.1333, 22.7333)
+texture = ExtResource("14_as0lr")
+
+[node name="TransitionAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("TheVoid")
+libraries = {
+"": SubResource("AnimationLibrary_sv7lo")
+}
+
+[node name="TheVoid" type="Sprite2D" parent="TransitionAnim"]
+z_index = 10
+position = Vector2(-1300, 2.08165e-12)
+scale = Vector2(4.08, 5.85714)
+texture = ExtResource("24_fosb5")
+
+[connection signal="pressed" from="ButtonPanel/ClassicMode" to="." method="_on_classic_mode_pressed"]
+[connection signal="pressed" from="ButtonPanel/RelaxedMode" to="." method="_on_relaxed_mode_pressed"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="QuestionTimer" to="." method="_on_question_timer_timeout"]
+[connection signal="timeout" from="DrTypicalBombhead/TalkTimer" to="DrTypicalBombhead" method="_on_talk_timer_timeout"]
+[connection signal="animation_finished" from="TransitionAnim" to="." method="_on_transition_anim_animation_finished"]

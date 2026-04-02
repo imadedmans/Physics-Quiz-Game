@@ -1,0 +1,29 @@
+@POSITIVE RESPONSES
+That's correct!
+Great!
+Good job!
+You've done me proud, boy! or girl, or whoever you are...
+
+@NEGATIVE RESPONSES MID
+That's incorrect!
+Hey man. bad.
+That, unfortunately, isn't the correct answer
+
+@TIME OUT
+You know these questions don't last forever!
+C'mon! Put up an effort at least!
+
+@NEGATIVE RESPONSES HARD
+Woah! Hey! Are you trying to light my fuse?!
+I'm not shaking! You're shaking!
+I'm on the edge here y'know!
+
+@DEATH
+I not being paid enough for this!
+Just when I got this suit cleaned...
+I think there may be some room for improvement
+
+@VICTORY
+Looks like you got to the end! Well done!
+Yes this is what my hand looks like, don't ask.
+You reached the end! Time to see the results!

@@ -1,0 +1,20 @@
+@EASY QUESTIONS
+remain stationary|move uniformly|remain stationary or move uniformly|accelerate|3
+F = mass * net velocty|F = mass x acceleration|Force is always constant|WRONG|2
+every action has an different reaction|gravational force is derived from orbital speed|the rate of change of velocity is acceleration|every action has an equal, opposite reaction|4
+direction and magnitude|position and magnitude|position and rotation|distance and force|1
+force|momentum|velocity|work|4
+velocity x distance|Force x distance|Force x acceleration|time * force|2
+
+@MEDIUM QUESTIONS
+upwards in the direction of gravity|downwards in the direction of gravity|parellel to the surface|upwards perpendicular to the surface|4
+Geiger-Muller counter|photographic tape|silver coating|cloud chamber|3
+ban na.|strength of the potential difference provided|the internal temperature of current|collisions between negative electrons and position ions|4
+All shapes of objects have the same motion of inertia|A farther mass from the centre gives a larger moment of inertia|An object has to be linearly accelerated|apple|2
+mass of fluid|volume submerged in fluid|density of fluid|gravity|1
+
+@HARD QUESTIONS
+Resistance is kept low|temperature remains low|temperature remains constant|resistance remains constant|3
+used for the equation of GPE|Cannot predict the motion of a satellite|i give up! honestly!|It explains why gravity exists|it involves the nature of magnetism|1
+Work done is directly proportional to mass|Work done is equal to grav. Field strength|Work done is zero|Work done is always negative|3
+v = u + as|0.5a = t^2 + 2vs|s = ut + v|v^2 = u^2 + 2as|4
