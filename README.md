@@ -18,9 +18,12 @@ FONTS USED (ALL TAKEN FROM DAFONT.COM):
 
 
 SOUNDS USED:
+
 	- Explosion SFX - From Roblox
+	
 	- Hurt SFX - By Toby Fox (SOURCED FROM UNDERTALE)
 
 
 MUSIC USED:
+
 	- Platform Panic Main Theme - By Erik Suhrke (NITROME)
